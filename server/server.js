@@ -13,13 +13,17 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://real-time-chat-app-nine-weld.vercel.app",
     methods: ["GET", "POST"],
   },
 });
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://real-time-chat-app-nine-weld.vercel.app",
+  })
+);
 app.use(express.json());
 
 // Routes
